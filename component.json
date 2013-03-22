@@ -1,0 +1,16 @@
+{
+  "name": "bin",
+  "repo": "component/bin",
+  "description": "data distribution binning",
+  "version": "0.0.1",
+  "keywords": ["binning", "distribution", "distribute", "stats", "statistics", "histogram"],
+  "dependencies": {
+    "component/min": "*",
+    "component/max": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "scripts": [
+    "index.js"
+  ]
+}
