@@ -9,7 +9,9 @@
 
 ## API
 
+### bin(data, totalBins)
 
+  Return `data` distributed into `totalBins`.
 
 ## License
 
