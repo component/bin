@@ -27,8 +27,8 @@ module.exports = function(data, total){
   for (var i = 0; i < data.length; i++) {
     var n = data[i];
     var d = n - mi;
-    var p = d / ma;
-    var b = total * p | 0;
+    var p = n / ma;
+    var b = Math.max(0, (total * p | 0) - 1);
     bins[b]++;
   }
 
