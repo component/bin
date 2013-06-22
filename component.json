@@ -2,7 +2,7 @@
   "name": "bin",
   "repo": "component/bin",
   "description": "data distribution binning",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "keywords": ["binning", "distribution", "distribute", "stats", "statistics", "histogram"],
   "dependencies": {
     "component/min": "*",
