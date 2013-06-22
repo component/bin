@@ -11,13 +11,15 @@ var max = require('max');
  *
  * @param {Array} data
  * @param {Number} total
+ * @param {Object} options
  * @return {Array}
  * @api public
  */
 
-module.exports = function(data, total){
-  var mi = min(data);
-  var ma = max(data);
+module.exports = function(data, total, opts){
+  opts = opts || {};
+  var mi = null == opts.min ? min(data) : opts.min;
+  var ma = null == opts.max ? max(data) : opts.max;
   var delta = ma - mi;
 
   // initialize bins
