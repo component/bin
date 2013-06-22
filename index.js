@@ -3,8 +3,8 @@
  * Module dependencies.
  */
 
-var min = require('min')
-  , max = require('max');
+var min = require('min');
+var max = require('max');
 
 /**
  * Bin `data` into `total` bins.
@@ -16,32 +16,21 @@ var min = require('min')
  */
 
 module.exports = function(data, total){
-  data = data.sort(numeric);
-  var div = Math.ceil((max(data) - min(data)) / total);
+  var mi = min(data);
+  var ma = max(data);
 
   // initialize bins
   var bins = [];
   for (var i = 0; i < total; i++) bins[i] = 0;
 
   // distribute
-  var i = 0;
-  var n = 1;
-  while (n < total + 1) {
-    var m = n * div;
-    while (i < data.length && data[i] <= m) {
-      bins[n - 1]++;
-      ++i;
-    }
-    ++n;
+  for (var i = 0; i < data.length; i++) {
+    var n = data[i];
+    var d = n - mi;
+    var p = d / ma;
+    var b = total * p | 0;
+    bins[b]++;
   }
 
   return bins;
 };
-
-/**
- * Numeric sort.
- */
-
-function numeric(a, b) {
-  return a - b;
-}
