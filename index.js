@@ -18,6 +18,7 @@ var max = require('max');
 module.exports = function(data, total){
   var mi = min(data);
   var ma = max(data);
+  var delta = ma - mi;
 
   // initialize bins
   var bins = [];
@@ -26,8 +27,7 @@ module.exports = function(data, total){
   // distribute
   for (var i = 0; i < data.length; i++) {
     var n = data[i];
-    var d = n - mi;
-    var p = n / ma;
+    var p = (n - mi) / (ma - mi);
     var b = Math.max(0, (total * p | 0) - 1);
     bins[b]++;
   }
